@@ -1,10 +1,7 @@
-const http = require('http');
 const fs = require('fs')
 
 
-const server = http.createServer((req, res) => {
-
-
+function requestHandler(req, res) {
 
     if (req.url === '/') {
         let str;
@@ -53,9 +50,6 @@ const server = http.createServer((req, res) => {
         res.statusCode = 404;
         res.end("<h1>404 Not Found</h1>");
     }
-});
+}
 
-
-server.listen(3222, () => {
-    console.log("server is running");
-})
+module.exports = requestHandler;
